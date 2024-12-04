@@ -1,0 +1,45 @@
+<div *ngIf="!isAdminLoggedIn && !isCustomerLoggedIn">
+    <nz-header class="main-header" nz-row nzType="flex" style="background-color: #003973;">
+        <div>
+            <a style="color: white; margin-left:50px; font-size:18px; font-weight: bolder;" routerLink="/login">Sell Car Service</a>
+        </div>
+        <div class="nav-links">
+            <a nz-button nzType="link" routerLink="/register" routerLinkActive="active">Sign Up</a>
+            <a nz-button nzType="link" routerLink="/login" routerLinkActive="active">Login</a>
+        </div>
+    </nz-header>
+</div>
+
+<div *ngIf="isAdminLoggedIn">
+    <nz-header class="main-header" nz-row nzType="flex" style="background-color: #003973;">
+        <div>
+            <a style="color: white; margin-left:50px; font-size:18px; font-weight: bolder;" routerLink="/login">Admin</a>
+        </div>
+        <div class="nav-links">
+            <a nz-button nzType="link" routerLink="/admin/dashboard" routerLinkActive="active">Dashboard</a>
+            <a nz-button nzType="link" routerLink="/admin/bookings" routerLinkActive="active">Bookings</a>
+            <a nz-button nzType="link" routerLink="/admin/search" routerLinkActive="active">Search Car</a>
+            <a nz-button nzType="link" (click)="logout()" routerLinkActive="active">LogOut</a>
+        </div>
+    </nz-header>
+</div>
+
+<div *ngIf="isCustomerLoggedIn">
+    <nz-header class="main-header" nz-row nzType="flex" style="background-color: #003973;">
+        <div>
+            <a style="color: white; margin-left:50px; font-size:18px; font-weight: bolder;" routerLink="/login">Customer</a>
+        </div>
+        <div class="nav-links">
+            <a nz-button nzType="link" routerLink="/customer/dashboard" routerLinkActive="active">Dashboard</a>
+            <a nz-button nzType="link" routerLink="/customer/post-car" routerLinkActive="active">Post Car</a>
+            <a nz-button nzType="link" routerLink="/customer/my-cars" routerLinkActive="active">My Cars</a>
+            <a nz-button nzType="link" routerLink="/customer/my-bids" routerLinkActive="active">My Bids</a>
+            <a nz-button nzType="link" routerLink="/customer/search-car" routerLinkActive="active">Search Car</a>
+            <a nz-button nzType="link" (click)="logout()" routerLinkActive="active">LogOut</a>
+        </div>
+    </nz-header>
+</div>
+
+
+
+<router-outlet></router-outlet>
